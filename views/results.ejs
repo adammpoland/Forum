@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Maricopa Forums</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <meta name="keywords" content="forum, Maricopa, Discussion">
+     <meta name="description" content="<%=question.question%>">
+
+     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Raleway&display=swap" rel="stylesheet">
+      <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="/darkred.css">
+     
+     <script> 
+       document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+      });
+    </script>
+
+  </head>
+
+  <body>
+
+      <div class="navbar-fixed" >
+        <nav>
+            
+            <div id="backgroundRed2" class="nav-wrapper">
+  
+              <a href="#" data-target="mobile-demo" class="button-collapse sidenav-trigger show-on-large right"><i class="material-icons">menu</i></a>
+              <a class="white-text left flow-text" href="/"> Maricopa Forums </a>
+              <ul class="right hide-on-med-and-down">
+                <% if(auth == "true") { %>
+
+                  <li><a href="/addQuestion">Add a Question</a></li>
+                  <li><a href="/myQuestions">My Questions</a></li>
+                  <li><a href="/logout">Log Out</a></li>
+
+                <% } else { %>
+                  <li><a href="/registerUser">Register</a></li>
+                  <li><a href="/login">Login</a></li>
+                <% } %>
+              </ul>
+            </div>
+
+          </nav>
+        
+         
+          
+        </div>
+
+        <ul class="sidenav" id="mobile-demo">
+          
+          
+            <li><a class="white-text name" href="/">Maricopa Forums </a></li>
+            <% if(auth == "true") { %>
+                <li><a class="white-text name" href="/addQuestion">Add a Question</a></li>
+                <li><a class="white-text name" href="/myQuestions">My Questions</a></li>
+                <li><a href="/logout">Log Out</a></li>
+
+              <% } else { %>
+                <li><a class="white-text name" href="/registerUser">Register</a></li>
+                <li><a class="white-text name" href="/login">Login</a></li>
+              <% } %>
+        </ul>
+
+    
+        
+      
+
+    <div class="row">
+      <div class="container s12 col l8 offset-l3">
+
+        <div class="card grey col s12 hoverable"> 
+            <div class="card-content ">
+                <h2 class="center-align black-text name"><%=question.question%></h2>
+                <p class="black-text center">Posted By: <%=question.username%></p>
+
+            </div>
+        </div>
+
+      <br>
+      <% if(auth=="true") {%>
+          <h5 class="title">New Comment</h5>    
+          <form action="/newComment/<%=question._id%>" method="POST" id="quizForm">
+            
+              <div class="input-field col s12" >
+                <input id="description" name="text" type="text" class="validate" >
+                <label class=" black-text text-darken-2" for="description">Comment</label>
+              </div>
+          
+            <br>
+            <input type="submit" class="btn" value="Submit"> 
+          </form>
+          <br>
+         
+            <% if(question.comments.length>0) {%>
+              <% for(let i=0; i<question.comments.length; i++) {%>
+                
+                      <div class="card grey align-center black-text hoverable"> 
+                          
+                          <div class="card-content ">
+                              <p class=" "><%=question.comments[i].text%></p> 
+                              <p class="truncate "> -<%=question.comments[i].writtenBy%></p>                         
+                            
+                          </div>
+                      </div>
+              <% } %>
+            <% } %>
+        
+      </div>
+      
+      <% } else{  %>
+        <div class="card grey darken-3 hoverable"> 
+                          
+          <div class="card-content ">
+              <p class="truncate ">Login to Post a comment</p>                          
+              <p class="truncate "><a href="/login">Login</a></p>                          
+           
+            
+          </div>
+      </div>
+      <% }%>
+  </body>
+</html>

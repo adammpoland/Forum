@@ -1,0 +1,142 @@
+
+      body { 
+        background-color:rgb(255, 255, 255);
+        background-size: cover;
+
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: large;
+
+      }
+
+     
+      .center{
+        width: 100%;
+      }
+      
+      #backgroundRed2{
+        background-position: center;
+        background-size: cover;
+        background-color:rgb(11, 100, 3);
+
+        padding-left: 10px;
+
+      }
+
+    
+      .container{
+       /* max-width: 800px;*/
+        margin: auto;
+        padding: 15px;
+        overflow:hidden;
+        width: 80%;
+        color: darkgray;
+        max-width: 960px;
+      }
+     
+      .card{
+     font-family: 'Raleway', sans-serif;
+        
+
+      }
+      
+      .items{
+        padding:1em;
+        border:1px black;
+      }
+
+      input.items{
+        width:200px;
+        height: 2em;
+        background-color: red;
+        border: 1px solid gray; 
+        padding: 5px;
+        text-align: center;
+        font-size: large;
+        margin:auto;
+        
+      }
+
+      input.items:hover{
+
+      }
+      input.delete:hover{
+        background-color: darkorange;
+      }
+
+
+     .btn{
+      max-width: 250px;
+      height: 3em;
+      background-color:rgb(11, 100, 3);
+      cursor: pointer;
+      color: white;
+     }
+
+     .btn.hover{
+       background-color: darkslategray;
+     }
+
+      .fileControl{
+        float: left;
+      }
+
+     
+      nav {
+        /* background-image: url("orangeBack.jpg"); */
+        color: white;
+      }
+      
+      .sidenav{
+        /* background-image: url("orangeBack.jpg"); */
+        
+      }
+
+      li{
+        background-color: rgb(72, 72, 75);
+       
+            
+      }
+
+      li a:hover:not(.active) {
+        background-color:rgb(11, 100, 3);
+        color: grey;
+      }
+      
+      .brand-logo{
+        float: left;
+      }
+      .active {
+       
+      }
+
+
+    input.submit{
+      background-color:darkred;
+      border:1px;
+      border-color:darkred;
+      max-width:200px;
+      height:20px;
+      color:red;
+    }
+    
+    
+    
+    a{
+      text-decoration: none;
+      text-align: center;
+
+    }
+  
+    a:hover{
+      color:orange;
+    }
+
+
+    .input-field input[type=text]:focus {
+      color: #000;
+      background-color: transparent;
+    }
+   
+.customCard{
+  height: 400px; /* Your height here */
+}

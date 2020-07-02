@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Maricopa Forums</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="keywords" content="forum, Maricopa, Discussion">
+    <meta name="description" content="A Place To Discuss Things About The City Of Maricopa">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Raleway&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
+    <link rel="stylesheet" type="text/css" href="darkred.css">
+
+    
+  </head>
+
+  <body>
+
+    
+      <br>
+      <% let j=1 %>
+      <div class="container">
+          <h1 class="title">Login</h1>
+          <form action="/login" method="POST">
+
+            <div class="input-field col s12">
+                <input id="username" name="username" type="text" class="validate">
+                <label class="black-text text-darken-2" for="username">Username</label>
+              </div>
+                  
+              <div class="input-field col s12" >
+                  <input id="password" name="password" type="text" class="validate" >
+                  <label class="black-text text-darken-2" for="password">Password</label>
+                </div>
+              
+                   
+
+
+            <br>
+            <input type="submit" class="btn" value="Submit"> 
+          </form>
+         
+          </div>
+
+      </div>
+<script>
+     $(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>
+  </body>
+</html>

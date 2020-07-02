@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+     <title>Maricopa Forums</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <meta name="keywords" content="forum, Maricopa, Discussion">
+     <meta name="description" content="A Place To Discuss Things About The City Of Maricopa">
+
+     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+     <link rel="stylesheet" type="text/css" href="darkred.css">
+
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.sidenav');
+          var instances = M.Sidenav.init(elems);
+        });
+      
+        // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+        var collapsibleElem = document.querySelector('.collapsible');
+        var collapsibleInstance = M.Collapsible.init(collapsibleElem);
+      
+        // Or with jQuery
+      
+        
+      </script>
+     
+
+  </head>
+
+  <body>
+
+      <div class="navbar-fixed" >
+          <nav>
+            
+              <div id="backgroundRed2" class="nav-wrapper">
+    
+                <a href="#" data-target="mobile-demo" class="button-collapse sidenav-trigger show-on-large right"><i class="material-icons">menu</i></a>
+                <a class="white-text flow-text" href="/"> Maricopa Forums</a>
+                <ul class="right hide-on-med-and-down">
+                  <% if(auth == "true") { %>
+
+                    <li><a href="/addQuestion">Add a Question</a></li>
+                    <li><a href="/myQuestions">My Questions</a></li>
+                    <li><a href="/logout">Log Out</a></li>
+                  <% } else { %>
+                    <li><a href="/registerUser">Register</a></li>
+                    <li><a href="/login">Login</a></li>
+                  <% } %>
+                </ul>
+              </div>
+       
+ 
+            
+          </div>
+          <ul class="sidenav" id="mobile-demo">
+          
+              <li><a class="white-text name" href="/">Maricopa Forums </a></li>
+              <% if(auth == "true") { %>
+                <li><a class="white-text name" href="/addQuestion">Add a Question</a></li>
+                <li><a class="white-text name" href="/myQuestions">My Questions</a></li>
+                <li><a href="/logout">Log Out</a></li>
+
+              <% } else { %>
+                <li><a class="white-text name" href="/registerUser">Register</a></li>
+                <li><a class="white-text name" href="/login">Login</a></li>
+              <% } %>
+          </ul>
+        </nav>
+   <br>
+   
+        <div class="row">
+            
+          <% for(let i=0; i<questions.length; i++) {%>
+            
+              
+              <div class="container s12 col l6 offset-l3">
+           
+                  <div class="card grey black-text hoverable"> 
+                      
+                      <div class="card-content ">
+                          <p class="truncate"><span class="card-title"><%=questions[i].question%></span></p>
+                          <p class="truncate">Posted by: <%=questions[i].username%></p>
+                          <br>
+                          <a class="btn" href="/results/<%=questions[i]._id%>">View Question</a>
+
+                        </div>
+                      
+                  
+
+                  </div>
+         
+              </div>
+              
+          <% } %>
+        
+      </div>
+              
+  <br>
+
+
+
+  
+
+  </body>
+  
+</html>

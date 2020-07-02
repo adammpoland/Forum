@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+      <title>Saguaro Surveys</title>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+      <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Raleway&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     
+      <link rel="stylesheet" type="text/css" href="darkred.css">
+  
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('select');
+          var instances = M.FormSelect.init(elems);
+        });
+       
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.sidenav');
+          var instances = M.Sidenav.init(elems);
+        });
+     </script>
+  </head>
+
+  <body>
+
+  
+      <div class="navbar-fixed" >
+          <nav>
+            
+              <div id="backgroundRed2" class="nav-wrapper">
+    
+                <a href="#" data-target="mobile-demo" class="button-collapse sidenav-trigger show-on-large right"><i class="material-icons">menu</i></a>
+                <a class="white-text left flow-text" href="/"> Saguaro Surveys</a>
+                <ul class="right hide-on-med-and-down">
+                 
+                    <li><a href="/makeTest">Make a Survey</a></li>
+                    <li><a href="/mySurveys">My Surveys</a></li>
+                    <li><a href="/finishedSurveys">Finished Surveys</a></li>
+                    <li><a href="/logout">Log Out</a></li>
+
+                 
+                </ul>
+              </div>
+
+             
+            </nav>
+          
+           
+            
+          </div>
+
+          <ul class="sidenav" id="mobile-demo">
+            <div class="background">
+              <img src="cactus.jpg" class="responsive-img">
+            </div>
+            
+              <li><a class="white-text name" href="/">Saguaro Surveys </a></li>
+              
+                <li><a class="white-text name" href="/makeTest">Make a Survey</a></li>
+                <li><a class="white-text name" href="/mySurveys">My Surveys</a></li>
+                <li><a class="white-text name" href="/finishedSurveys">Finished Surveys</a></li>
+                <li><a href="/logout">Log Out</a></li>
+
+
+          </ul>
+    <div class="container">
+
+
+      <br>
+          <h1 class="title">Make a Survey</h1>    
+          <form action="/newTest" method="POST" id="quizForm">
+
+
+            
+              <div class="input-field col s12" >
+                <input id="name" name="name" type="text" class="validate" >
+                <label class="black-text text-darken-2" for="name">Name</label>
+              </div>
+
+              <div class="input-field col s12" >
+                <input id="description" name="description" type="text" class="validate" >
+                <label class=" black-text text-darken-2" for="description">Description</label>
+              </div>
+
+                <p>
+                  <label>
+                    <input type="checkbox" name="commentable"/>
+                    <span>Comment Section</span>
+                  </label>
+                </p>
+            
+                <p>
+                    <label>
+                      <input type="checkbox" name="repeatable"/>
+                      <span>Repeatable</span>
+                    </label>
+                  </p>
+            <br>
+                  
+            <div class="input-field col s12">
+               <select class="" id="select" form="quizForm" name="categorie">
+                  <option value = "" disabled selected>Select Categorie</option>
+                  <option value = "politics">Politics</option>
+                  <option value = "religion">Religion</option>
+                  <option value = "entertainment">Entertainment</option>
+
+                  <option value = "psychology">Psychology</option>
+                  <option value = "economics">Economics</option>
+                  <option value = "culture">Culture</option>
+                  <option value = "environment">The Environment</option>
+               </select>    
+               <label for="select" class=" black-text text-darken-2">Categorie</label>
+           
+            </div>
+    
+
+
+            <span id="responce1"></span>
+            <input type="button" value="Add a Question" class="btn" onclick="addInput()"/>
+
+
+            <br>
+            <script>
+            var countBox =1;
+            var cb2 = 0;
+            var boxName = 0;
+            var MaxSurveyQuestions = 30;
+            function addInput()
+            {
+              if(countBox<=MaxSurveyQuestions){
+               var responseBox = "responce"+countBox;
+                cb2=countBox +1;
+                var boxName="textBox"+countBox; 
+                document.getElementById(responseBox).innerHTML+='<br/>Question '+countBox+': <input type="text" id="'+boxName+'" name="textbox[]" " /><br/> <span id="responce'+cb2+'"></span>';
+               var count = document.getElementById('count').value=countBox;     
+                console.log(countBox);
+                countBox += 1;
+                count.value=countBox;
+              }
+                
+            }
+            </script>
+
+            <input type="hidden" name="numOfQuestions" id="count">
+            <input type="hidden" name="createdBy" value="<%=email%>">
+
+
+            <br>
+            <input type="submit" class="btn" value="Submit"> 
+          </form>
+        
+
+      </div>
+      
+
+      <script>
+
+      </script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+      <title>Saguaro Surveys</title>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+      <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Raleway&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     
+      <link rel="stylesheet" type="text/css" href="darkred.css">
+  
+
+
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.sidenav');
+          var instances = M.Sidenav.init(elems);
+        });
+      </script>
+
+  </head>
+
+  <body>
+
+      <div class="navbar-fixed" >
+          <nav>
+            
+              <div id="backgroundRed2" class="nav-wrapper">
+    
+                <a href="#" data-target="mobile-demo" class="button-collapse sidenav-trigger show-on-large right"><i class="material-icons">menu</i></a>
+                <a class="white-text left flow-text" href="/"> Saguaro Surveys</a>
+                <ul class="right hide-on-med-and-down">
+                  
+
+                    <li><a href="/makeTest">Make a Survey</a></li>
+                    <li><a href="/mySurveys">My Surveys</a></li>
+                    <li><a href="/finishedSurveys">Finished Surveys</a></li>
+
+                </ul>
+              </div>
+
+            </nav>
+          
+           
+            
+          </div>
+
+          <ul class="sidenav" id="mobile-demo">
+            <div class="background">
+              <img src="cactus.jpg" class="responsive-img">
+            </div>
+            
+              <li><a class="white-text name" href="/">Saguaro Surveys </a></li>
+              
+                <li><a class="white-text name" href="/makeTest">Make a Survey</a></li>
+                <li><a class="white-text name" href="/mySurveys">My Surveys</a></li>
+                <li><a class="white-text name" href="/finishedSurveys">Finished Surveys</a></li>
+                <li><a href="/logout">Log Out</a></li>
+
+          </ul>
+   
+    <br>
+    <div class="container">
+
+    <h1>Surveys:</h1> 
+    <div class="row flex">
+    
+
+        
+      <% for(let i=0; i<tests.length; i++) {%>
+        <% if(tests[i].createdBy==email) {%>
+            
+      
+        <div class="col s12 m4 l4">
+          <div class="card blue-grey darken-1">
+                          
+
+            <div class="card-content white-text">
+                <span class="card-title"><%=tests[i].name%></span>
+              <p><%=tests[i].description%></p>
+              <p>Number of Questions: <%=tests[i].numOfQuestions%></p>              
+                          
+            </div>
+            <div class="card-action">
+              <a href="/test/<%=tests[i]._id%>">Take Quiz</a>
+              <a href="#">share</a>
+            </div>
+          </div>
+        </div>
+        <% } %>
+
+      <% } %>
+    
+
+  </div>
+</div>
+  </body>
+</html>

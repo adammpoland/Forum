@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Maricopa Forums</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="keywords" content="forum, Maricopa, Discussion">
+    <meta name="description" content="A Place To Discuss Things About The City Of Maricopa">
+
+      <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Raleway&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     
+      <link rel="stylesheet" type="text/css" href="darkred.css">
+  
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('select');
+          var instances = M.FormSelect.init(elems);
+        });
+       
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.sidenav');
+          var instances = M.Sidenav.init(elems);
+        });
+     </script>
+  </head>
+
+  <body>
+
+  
+      <div class="navbar-fixed" >
+          <nav>
+            
+              <div id="backgroundRed2" class="nav-wrapper">
+    
+                <a href="#" data-target="mobile-demo" class="button-collapse sidenav-trigger show-on-large right"><i class="material-icons">menu</i></a>
+                <a class="white-text left flow-text" href="/">Maricopa Forums</a>
+                <ul class="right hide-on-med-and-down">
+                 
+                    <li><a href="/addQuestion">Add a Question</a></li>
+                    <li><a href="/myQuestions">My Questions</a></li>
+                    <li><a href="/logout">Log Out</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+
+          <ul class="sidenav" id="mobile-demo">
+            <div class="background">
+              <img src="cactus.jpg" class="responsive-img">
+            </div>
+            
+              <li><a class="white-text name" href="/">Maricopa Forums</a></li>
+              
+                <li><a class="white-text name" href="/addQuestion">Add a Question</a></li>
+                <li><a class="white-text name" href="/myQuestions">My Questions</a></li>
+                <li><a href="/logout">Log Out</a></li>
+
+
+          </ul>
+    <div class="container">
+
+
+      <br>
+          <h1 class="title">Submit a Question</h1>    
+          <form action="/addQuestion" method="POST" id="quizForm">
+              
+              <div class="input-field col s12" >
+                <input id="question" name="question" type="text" class="validate" >
+                <label class=" black-text text-darken-2" for="question">What's Your Question?</label>
+              </div>
+
+              <input type="hidden" name="username" value="<%=username%>">
+           
+            <input type="submit" class="btn" value="Submit"> 
+          </form>
+        
+
+      </div>
+      
+
+      <script>
+
+      </script>
+  </body>
+</html>

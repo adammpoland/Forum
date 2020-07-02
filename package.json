@@ -1,0 +1,23 @@
+{
+  "name": "thediscourse",
+  "version": "1.0.0",
+  "description": "Forum engine",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "forum"
+  ],
+  "author": "adam poland",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.9.20",
+    "multer": "^1.4.2"
+  }
+}
